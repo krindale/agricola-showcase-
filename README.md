@@ -2,7 +2,7 @@
 
 보드게임 아그리콜라(Agricola)를 소개하는 웹페이지입니다.
 
-**Live Demo**: https://krindale.github.io/agricola-showcase-/
+**Live Demo**: https://krindale.github.io/agricola-showcase/
 
 ![Agricola](https://img.shields.io/badge/Agricola-Board%20Game-8B4513)
 ![React](https://img.shields.io/badge/React-19-61DAFB)

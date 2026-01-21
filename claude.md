@@ -73,8 +73,8 @@ npm run build
 
 ## 배포
 
-- **라이브 URL**: https://krindale.github.io/agricola-showcase-/
-- **GitHub**: https://github.com/krindale/agricola-showcase-
+- **라이브 URL**: https://krindale.github.io/agricola-showcase/
+- **GitHub**: https://github.com/krindale/agricola-showcase
 
 main 브랜치에 푸시하면 GitHub Actions가 자동으로 배포합니다.
 
