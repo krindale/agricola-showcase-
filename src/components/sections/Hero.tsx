@@ -1,12 +1,18 @@
 import { useTranslation } from 'react-i18next';
-import { Badge, Button } from '../ui';
+import { Badge, Button, Counter } from '../ui';
 
 export default function Hero() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const scrollToAbout = () => {
     document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  // Get language-specific badge text
+  const isKorean = i18n.language === 'ko';
+  const playersSuffix = isKorean ? '인' : ' Players';
+  const timeSuffix = isKorean ? '분/인' : ' min/player';
+  const ageSuffix = isKorean ? '세+' : '+';
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-primary/5 to-background pt-16">
@@ -21,9 +27,20 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <Badge variant="default">{t('hero.players')}</Badge>
-            <Badge variant="accent">{t('hero.time')}</Badge>
-            <Badge variant="secondary">{t('hero.age')}</Badge>
+            <Badge variant="default">
+              <Counter value={1} duration={2000} />
+              -
+              <Counter value={5} duration={2000} />
+              {playersSuffix}
+            </Badge>
+            <Badge variant="accent">
+              <Counter value={30} duration={2000} />
+              {timeSuffix}
+            </Badge>
+            <Badge variant="secondary">
+              <Counter value={12} duration={2000} />
+              {ageSuffix}
+            </Badge>
           </div>
 
           <Button onClick={scrollToAbout} size="lg">
