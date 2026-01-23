@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Section, SectionTitle, Card } from '../ui';
+import Counter from '../ui/Counter';
 
 export default function HowToPlay() {
   const { t } = useTranslation();
@@ -27,7 +28,7 @@ export default function HowToPlay() {
           {stages.map((stage, idx) => (
             <div key={idx} className="text-center">
               <div className="text-xs text-text/50 mb-2">
-                {t('howToPlay.stages')} {idx + 1}
+                {t('howToPlay.stages')} <Counter value={idx + 1} duration={1500} />
               </div>
               <div className="flex gap-1">
                 {stage.rounds.map((round) => (
@@ -35,7 +36,7 @@ export default function HowToPlay() {
                     key={round}
                     className="w-8 h-8 md:w-10 md:h-10 bg-primary/20 rounded flex items-center justify-center text-sm font-medium text-primary"
                   >
-                    {round}
+                    <Counter value={round} duration={2000} />
                   </div>
                 ))}
               </div>
@@ -65,7 +66,9 @@ export default function HowToPlay() {
                   →
                 </div>
               )}
-              <div className="text-3xl mb-2 text-primary font-bold">{idx + 1}</div>
+              <div className="text-3xl mb-2 text-primary font-bold">
+                <Counter value={idx + 1} duration={1500} />
+              </div>
               <h4 className="font-medium text-text mb-1">
                 {t(`howToPlay.roundPhases.${phase}.title`)}
               </h4>
