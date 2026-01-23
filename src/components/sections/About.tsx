@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { Section, SectionTitle } from '../ui';
+import Counter from '../ui/Counter';
 
 export default function About() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <Section id="about" alternate>
@@ -16,7 +17,18 @@ export default function About() {
             </p>
             <p>{t('about.story.line2')}</p>
             <p className="pt-4">{t('about.story.line3')}</p>
-            <p>{t('about.story.line4')}</p>
+            <p>
+              {i18n.language === 'ko' ? (
+                <>
+                  <Counter value={14} className="font-semibold text-primary" />
+                  라운드 동안 밭을 일구고, 동물을 기르고,
+                </>
+              ) : (
+                <>
+                  Over <Counter value={14} className="font-semibold text-primary" /> rounds, you must plow fields, raise animals,
+                </>
+              )}
+            </p>
             <p>{t('about.story.line5')}</p>
             <p className="pt-4 text-primary/90 font-medium">
               {t('about.story.line6')}
